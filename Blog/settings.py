@@ -120,3 +120,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+"""# Email settings
+EMAIL_HOST = 'localhost'
+EMAIL_HOST_USER = 'mony@monycell.com'
+EMAIL_HOST_PASSWORD = 'mypassword'
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = False
+"""

@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCKTYPE html>
+<html>
+<head>
+  <title> {% block title %}{% endblock title %} </title>
+</head>
+<body>
+  <div id="content">
+
+    {% block content %}
+
+    {% endblock content %}
+  </div>
+  <div id="sidebar">
+    <h2>My Blog</h2>
+  </div>
+
+</body>
+</html>
