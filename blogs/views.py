@@ -4,7 +4,7 @@ from django.core.paginator import Paginator, EmptyPage,\
 PageNotAnInteger
 from django.views.generic import ListView
 from .forms import EmailPostForm
-form django.core.mail import send_mail
+from django.core.mail import send_mail
 
 # Create your views here.
 class   PostListView(ListView):
