@@ -84,5 +84,4 @@ def post_details(request, year, month, day, post):
         comment_form = CommentForm()
     context = {'post':post, 'comments':comments, 'new_comment': new_comment, 
     'comment_form': comment_form}
-    return render(request, 'blogs/post/detail.html', context)
-    
+    return render(request, 'blogs/post/detail.html', context)                
