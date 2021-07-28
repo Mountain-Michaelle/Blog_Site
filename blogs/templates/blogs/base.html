@@ -1,19 +1,25 @@
 {% load static %}
-<!DOCKTYPE html>
+ <!DOCKTYPE html >
 <html>
 <head>
   <title> {% block title %}{% endblock title %} </title>
+  <link href="{% static 'css/blogs.css' %}" rel="stylesheet">
 </head>
 <body>
+ <div id="sidebar">
+   <div id="tit">
+     <span id="greeting">Welcome </span>!</div>
+    <h2> <div id="tite"> Welcome to </div> My Blog,<br/> 
+    A home for greater future</h2>
+  </div>
   <div id="content">
 
     {% block content %}
-
     {% endblock content %}
   </div>
-  <div id="sidebar">
-    <h2>My Blog</h2>
-  </div>
 
+{% block js_block %}
+<script type="text/javascript" src="{% static 'js/test.js' %}"> </script>
+ {% endblock js_block%}
 </body>
 </html>

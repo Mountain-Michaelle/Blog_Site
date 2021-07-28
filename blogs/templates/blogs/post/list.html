@@ -13,7 +13,7 @@
       <p class="date">
       Published on {{post.publish}} by {{post.author}}
       </p>
-      {{ post.body|truncatewords:30|linebreaks }}
+     <block> {{ post.body|truncatewords:12|linebreaks }}</block>
   {% endfor %}
   {% include "blogs/pagination.html" with page=page_obj %}
 {% endblock content %}

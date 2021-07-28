@@ -3,6 +3,8 @@
 {% block title %}{{ post.title }}{% endblock title %}{{ post.title }}
 
 {% block content %}
+ <div id="title">
+    <span id="greeting">Welcome... <span>!</div>
   <h1>{{post.title}}</h1>
     <p class="date">
       Published on {{ post.publish }} by {{post.author}}
@@ -11,4 +13,9 @@
 <p>
   <a href="{% url 'blogs:post_share' post.id %}"><b>Share this post</b></a>
 </p>
+<p>
+<a href="{% url 'blogs:user_comment' post.id %}"> View Comment </a>
+</p>
+
+ 
 {% endblock content %}

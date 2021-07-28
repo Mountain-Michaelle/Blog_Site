@@ -65,7 +65,14 @@ def post_details(request, year, month, day, post):
                                     publish__year=year,
                                     publish__month=month,
                                     publish__day=day)
-    
+
+    context = {'post':post}
+    return render(request, 'blogs/post/detail.html', context)                
+
+
+
+def user_comment(request, comment_id):
+    post = get_object_or_404(Post, id=comment_id)
     # list of active comments for this post
     comments = post.comments.filter(active=True)
     new_comment = None
@@ -84,4 +91,5 @@ def post_details(request, year, month, day, post):
         comment_form = CommentForm()
     context = {'post':post, 'comments':comments, 'new_comment': new_comment, 
     'comment_form': comment_form}
-    return render(request, 'blogs/post/detail.html', context)                
+    return render(request, 'blogs/post/comment.html', context)                
+    
