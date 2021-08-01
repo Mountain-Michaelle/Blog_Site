@@ -5,6 +5,7 @@ PageNotAnInteger
 from django.views.generic import ListView
 from .forms import EmailPostForm, CommentForm
 from django.core.mail import send_mail
+from taggit.models import Tag
 
 # Create your views here.
 class   PostListView(ListView):
@@ -42,8 +43,14 @@ def post_share(request, post_id):
 
 
 
-"""def post_list(request):
+def post_list(request, tag_slug=None):
     object_list = Post.objects.all()
+    tag = None
+
+    if tag_slug:
+        tag = get_object_or_404(Tag, slug=tag_slug)
+        object_list = object_list.filter(tags__in=[tag])
+
     paginator = Paginator(object_list, 3) # Three post in each page
     page = request.GET.get('page')
     try:
@@ -56,7 +63,7 @@ def post_share(request, post_id):
         posts = paginator.page(paginator.num_pages)
     context = {'page': page, 'posts': posts} 
     return render(request,
-            'blogs/post/list.html', context)"""
+            'blogs/post/list.html', context)
 
 
 

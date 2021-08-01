@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Django third-party apps.
+    'taggit',
     # My own apps...
     'blogs.apps.BlogsConfig',
 ]

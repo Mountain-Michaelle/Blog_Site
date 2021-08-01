@@ -14,6 +14,7 @@
       Published on {{post.publish}} by {{post.author}}
       </p>
      <block> {{ post.body|truncatewords:12|linebreaks }}</block>
+     <p class="tags">Tags: {{ post.tags.all|join:", " }} </p>
   {% endfor %}
   {% include "blogs/pagination.html" with page=page_obj %}
 {% endblock content %}
