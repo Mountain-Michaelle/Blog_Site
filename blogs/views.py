@@ -6,13 +6,15 @@ from django.views.generic import ListView
 from .forms import EmailPostForm, CommentForm
 from django.core.mail import send_mail
 from taggit.models import Tag
+from django.db.models import Count
 
-# Create your views here.
+
+"""# Create your views here.
 class   PostListView(ListView):
     queryset = Post.objects.all()
     context_object_name = 'posts'
     paginate_by = 3
-    template_name = 'blogs/post/list.html'
+    template_name = 'blogs/post/list.html'"""
 
 
 def post_share(request, post_id):
@@ -61,7 +63,7 @@ def post_list(request, tag_slug=None):
     except EmptyPage:
         # if page is out of range deliver lase page of results
         posts = paginator.page(paginator.num_pages)
-    context = {'page': page, 'posts': posts} 
+    context = {'page': page, 'posts': posts, 'tag': tag } 
     return render(request,
             'blogs/post/list.html', context)
 
@@ -72,8 +74,17 @@ def post_details(request, year, month, day, post):
                                     publish__year=year,
                                     publish__month=month,
                                     publish__day=day)
+    
+    # LIst of similar posts
 
-    context = {'post':post}
+    post_tags_ids = post.tags.values_list('id', flat=True)
+    similar_posts = Post.objects.filter(tags__in=post_tags_ids)\
+                                    .exclude(id=post.id)
+    similar_posts = similar_posts.annotate(same_tags=Count('tags'))\
+                                    .order_by('-same_tags', '-publish')[:4] 
+    
+
+    context = {'post':post, 'similar_posts': similar_posts }
     return render(request, 'blogs/post/detail.html', context)                
 
 

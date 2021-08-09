@@ -1,15 +1,20 @@
-from kivy.app import App 
-from kivy.uix.gridlayout import GridLayout 
-from kivy.uix.label import Label
-from kivy.uix.image import Image
-from kivy.uix.button import Button 
-from kivy.uix.textinput import TestInput
+import kivy 
+kivy.require('1.9.1') # replace with your current kivy version !
 
-class SayHello(App):
+from kivy.app import App
+from kivy.uix.label import Label
+
+# add the following 2 lines to solve OpenGL 2.0 bug
+from kivy import Config
+Config.set('graphics', 'multisamples', '0')
+
+
+class MyApp(App):
+
     def build(self):
-        self.Label = ('Kivy App')
-        self.Window = GridLayout()
-        # add widgets to window
-        return self.Winddow
+        return Label(text='Hello world')
+
 if __name__=='__main__':
-    SayHello().run()
+    MyApp().run()
+
+    

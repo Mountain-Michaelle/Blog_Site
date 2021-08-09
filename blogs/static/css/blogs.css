@@ -103,10 +103,14 @@ input[type=submit] {
     background: #efefef;
 }
 
+.text {
+    color: rgb(117, 230, 17)
+}
+
 .comment .info {
     font-weight: bold;
     font-size: 12px;
-    color: #666;
+    color: rgb(133, 216, 228);
 }
 
 #comment_body {
@@ -120,4 +124,8 @@ input[type=submit] {
 
 p.tags {
     color: rgb(86, 124, 218);
+}
+
+#comment {
+    text-indent: 20px;
 }
