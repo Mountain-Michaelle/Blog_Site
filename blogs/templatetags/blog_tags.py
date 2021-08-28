@@ -1,4 +1,5 @@
 from django import template
+from django.db.models import Count
 from . .models import Post 
 
 
@@ -10,10 +11,16 @@ register = template.Library()
 def total_posts():
     return Post.objects.count()
 
+@register.simple_tag
+def get_most_commented_posts(count=5):
+    return Post.objects.annotate(
+        total_comments=Count('comments')
+    ).order_by('-total_comments')[:4]
 
-@register.inclusion_tag('blogs/pos/latest_posts.html')
-def show_latest(count=5):
-    latest_posts = Post.objects.order_by('=publish')[:count]
+
+@register.inclusion_tag('blogs/post/latest_posts.html')
+def show_latest_posts(count=5):
+    latest_posts = Post.objects.order_by('-publish')[:3]
     return{'latest_posts': latest_posts}
     
 
