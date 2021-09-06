@@ -1,6 +1,8 @@
 from django import template
 from django.db.models import Count
 from . .models import Post 
+from django.utils.safestring import mark_safe
+import markdown
 
 
 """ Starting by creating a simple tag that will retrieve
@@ -24,4 +26,6 @@ def show_latest_posts(count=5):
     return{'latest_posts': latest_posts}
     
 
-
+@register.filter(name='markdown')
+def markdown_format(text):
+    return mark_safe(markdown.markdown(text))
