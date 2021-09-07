@@ -3,10 +3,12 @@ from .models import Post, Comment
 from django.core.paginator import Paginator, EmptyPage,\
                                         PageNotAnInteger
 from django.views.generic import ListView
-from .forms import EmailPostForm, CommentForm
+from django.contrib.postgres.search import SearchVector 
+from .forms import EmailPostForm, CommentForm, SearchForm 
 from django.core.mail import send_mail
 from taggit.models import Tag
 from django.db.models import Count
+
 
 
 """# Create your views here.
@@ -89,6 +91,23 @@ def post_details(request, year, month, day, post):
 
 
 
+def post_search(request):
+    form = SearchForm()
+    query = None
+    results = []
+    if 'query' in request.GET:
+        form = SearchForm(request.GET)
+        if form.is_valid():
+            query = form.cleaned_data['query']
+            results = Post.objects.annotate(
+                search=SearchVector('title', 'body'),
+            ).filter(search=query)
+    return render(request, 'blogs/post/search.html',
+                    {'form': form,
+                    'form': form,
+                    'results': results})
+
+
 def user_comment(request, comment_id):
     post = get_object_or_404(Post, id=comment_id)
     # list of active comments for this post
@@ -110,4 +129,3 @@ def user_comment(request, comment_id):
     context = {'post':post, 'comments':comments, 'new_comment': new_comment, 
     'comment_form': comment_form}
     return render(request, 'blogs/post/comment.html', context)                
-    

@@ -12,12 +12,14 @@
      <span id="greeting">Welcome </span>!</div>
     <h2> <div id="tite"> Welcome to </div> My Blog,<br/> 
         A home for greater future</h2>
+
+        <h3><a href="{% url 'blogs:post_search' %}"> Search for post </a> </h3>
         <p>
         <li> {% total_posts %} posts had been added </li>
         </p>
 
         <p> <a href="{% url 'blogs:post_feed' %}"> Subscribe to my RSS feed </a
-        <h3> Latest posts </h3>
+        <p><h3> Latest posts </h3></p>
           {% show_latest_posts 3 %}
       
         <h3>Most commented post</h3>

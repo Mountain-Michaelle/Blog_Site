@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     # Sitemap app recctifiers 
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    # djanog postgresql databases
+    'django.contrib.postgres',
 ]
 
 MIDDLEWARE = [
