@@ -26,6 +26,7 @@ class Post(models.Model):
         unique_for_date='publish')
     author = models.ForeignKey(User,
         on_delete=models.CASCADE, related_name='blogs_post')
+    image = models.ImageField(upload_to='images/%Y/%m/%d/', blank=True)
     body = models.TextField()
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)

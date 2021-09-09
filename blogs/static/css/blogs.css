@@ -85,6 +85,10 @@ input[type=submit] {
     text-transform: uppercase;
 }
 
+h3.search {
+    text-indent: 0px;
+}
+
 .errorlist {
     color: #cc0033;
     float: left;
@@ -128,4 +132,13 @@ p.tags {
 
 #comment {
     text-indent: 20px;
+}
+
+#post-img,
+img {
+    float: left;
+    height: 300px;
+    width: 260px;
+    display: block;
+    margin: 1px;
 }

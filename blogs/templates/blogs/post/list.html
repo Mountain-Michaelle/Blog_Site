@@ -9,26 +9,52 @@
  {% if tag %} 
       <h2> Post tagged with "{{ tag.name }}" </h2>
   {% endif %}
-
-
+<table>
+   <tr>
   {% for post in posts %}
-    <h2>
+  <p>
+    <td>
       <a href="{{ post.get_absolute_url }}">
-      {{ post.title }}
-      </a>
-      </h2>
-          <block> {{ post.body|markdown|truncatewords_html:20 }}</block>
-          <p class="tag">
-  Tags:
-  {% for tag in post.tags.all %}
-    <a href="{% url 'blogs:post_list_by_tag' tag.slug %}">
-      {{ tag.name }}
-    </a>
-   {% if not forloop.last %}, {% endif %}
-  {% endfor %}
+          {{ post.title }}
+     
+      <div id="post_img">
+        <img src="{{ post.image.url }}"
+         </a>
+      </div>
+    </td>
+    </p>
+
+    <td>
+      <h2>
+      
+        <p> <block> {{ post.body|markdown|truncatewords_html:20 }}</block></p>
+      <p class="tag">
+      Tags:
+        {% for tag in post.tags.all %}
+         <a href="{% url 'blogs:post_list_by_tag' tag.slug %}">
+        {{ tag.name }}
+         </a>
+   {% if not forloop.last %}
+    {% endif %}
+
+  {% endfor %} 
+    </h2>
+    
+<p class="date">
+      Published on {{post.publish}} by {{post.author}}</p>
+    </td>
+  </tr>  
+
+{% empty %}
+<p> No posts have been added yet </p>
+ {% endfor %}
+
+ </table>
 </p>
-   <p class="date">
-      Published on {{post.publish}} by {{post.author}}
-  {% endfor %}
+
+<p class="pagination">
   {% include "blogs/pagination.html" with page=posts %}
+</p>
+
+
 {% endblock content %}
