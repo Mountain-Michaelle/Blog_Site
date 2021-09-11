@@ -26,7 +26,7 @@ SECRET_KEY = '!b@*+v+fb%b!s4g$^i6gv0xzbjo)d%1f4y3@j40b10s53yiit)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','https://blog4site.herokuapp.com/']
 SITE_ID = 1
 
 
@@ -91,7 +91,7 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': '41240075',
         'HOST': 'localhost',
-        'PORT': ' ',
+        'PORT': '5432',
     }
 }
 
