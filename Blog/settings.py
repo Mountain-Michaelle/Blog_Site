@@ -30,7 +30,7 @@ SECRET_KEY = '!b@*+v+fb%b!s4g$^i6gv0xzbjo)d%1f4y3@j40b10s53yiit)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','https://blog4site.herokuapp.com/']
+ALLOWED_HOSTS = ['127.0.0.1', 'https://git.heroku.com/murmuring-river-00434.git']
 SITE_ID = 1
 
 
