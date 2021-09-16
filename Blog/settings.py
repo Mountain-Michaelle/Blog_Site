@@ -14,9 +14,6 @@ import os
 from pathlib import Path
 import django_heroku
 
-# Setting for heroku deployments
-django_heroku.settings(locals())
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -28,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '!b@*+v+fb%b!s4g$^i6gv0xzbjo)d%1f4y3@j40b10s53yiit)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'https://git.heroku.com/murmuring-river-00434.git']
+ALLOWED_HOSTS = ['https://git.heroku.com/murmuring-river-00434.git']
 SITE_ID = 1
 
 
@@ -135,7 +132,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -149,3 +146,6 @@ EMAIL_USE_SSL = False
 """
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '/media/')
+
+# Setting for heroku deployments
+django_heroku.settings(locals())
