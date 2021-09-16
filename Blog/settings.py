@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Django third-party apps.
     'taggit',
-    # My own apps...
+    # My own applications...
     'blogs.apps.BlogsConfig',
     # Sitemap app recctifiers 
     'django.contrib.sites',
