@@ -150,7 +150,7 @@ EMAIL_USE_TLS = False
 EMAIL_USE_SSL = False
 """
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, '/media/')
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), '/media/')
 
 # Setting for heroku deployments
 django_heroku.settings(locals())
