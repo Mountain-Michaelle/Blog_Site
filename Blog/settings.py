@@ -25,8 +25,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '045cd087a91c04359b9bda8035081929197444884db64ec8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if os.environ.get('DEBUG') == 'TRUE':
+    DEBUG = True
+elif os.environ.get('DEBUG') == 'FALSE':
+    DEBUG = False
 
+
+DEBUG = True
 ALLOWED_HOSTS = ['https://git.heroku.com/murmuring-river-00434.git']
 SITE_ID = 1
 
