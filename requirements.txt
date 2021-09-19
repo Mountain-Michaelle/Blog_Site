@@ -1,4 +1,3 @@
-
 asgiref==3.3.1
 auditlog==0.0.5
 certifi==2021.5.30
@@ -14,12 +13,14 @@ heroku==0.1.4
 idna==3.2
 Markdown==3.3.4
 Pillow==8.0.1
+postgres==3.0.0
 psycopg2==2.9.1
 psycopg2-binary==2.9.1
 psycopg2-pool==1.1
-python-dateutil==2.6.0
+python-dateutil==1.5
 pytz==2020.5
 requests==2.26.0
+six==1.16.0
 soupsieve==2.2.1
 sqlparse==0.4.1
 urllib3==1.26.6
