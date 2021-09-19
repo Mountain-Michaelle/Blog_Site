@@ -10,12 +10,15 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-import os
+
 from pathlib import Path
+
+
 import django_heroku
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.Path.dirname(os.path.dirname(os.path.abspath(__file__))).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,11 +28,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '045cd087a91c04359b9bda8035081929197444884db64ec8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if os.environ.get('DEBUG') == 'TRUE':
-    DEBUG = True
-elif os.environ.get('DEBUG') == 'FALSE':
-    DEBUG = False
-
 
 DEBUG = True
 ALLOWED_HOSTS = ['https://git.heroku.com/murmuring-river-00434.git']
@@ -137,9 +135,19 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, '/staticfiles/')
 STATIC_URL = '/static/'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, '/media/')
+MEDIA_URL = '/media/'
+
+# Settings for email backends 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_PASSWORD = 'mypassword'
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = False
 
 
 """# Email settings
@@ -149,8 +157,6 @@ EMAIL_HOST_PASSWORD = 'mypassword'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = False
 """
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), '/media/')
 
 # Setting for heroku deployments
 django_heroku.settings(locals())
