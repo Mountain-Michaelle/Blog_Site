@@ -1,0 +1,9 @@
+{% extends 'account/home.html' %} 
+
+{% block title %} Welcome to our blog {% endblock title %} 
+
+{% block content %}  
+<h1>Welcome {{ new_user.username}}!</h1> 
+<p>Your account has been successfully created. Now you can <a href="{% url 'login' %}"> Sign-in </a> </p> 
+
+{% endblock content %} 

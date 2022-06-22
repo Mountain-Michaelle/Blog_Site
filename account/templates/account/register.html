@@ -1,0 +1,16 @@
+{% extends 'account/home.html' %} 
+
+{% block title %}Sign-up{% endblock %} 
+
+
+{% block content %} 
+<h1> Create your account here </h1>
+<h2> You can sign up using the following forms </h2> 
+
+<form action="." method="post"> 
+    {{ user_form.as_p }} 
+    {% csrf_token %} 
+    <p><input type="submit" value="sign-up"></p> 
+</form> 
+
+{% endblock content %} 

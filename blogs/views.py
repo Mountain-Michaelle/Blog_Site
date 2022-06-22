@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from .models import Post, Comment
 from django.core.paginator import Paginator, EmptyPage, \
     PageNotAnInteger
@@ -16,7 +17,7 @@ class   PostListView(ListView):
     paginate_by = 3
     template_name = 'blogs/post/list.html'"""
 
-
+@login_required
 def post_search(request):
     form = SearchForm()
     query = None
@@ -35,8 +36,7 @@ def post_search(request):
                   {'form': form,
                    'query': query,
                    'results': results})
-
-
+@login_required
 def post_share(request, post_id):
     # Retrieve post by id.
     post = get_object_or_404(Post, id=post_id)
@@ -61,7 +61,7 @@ def post_share(request, post_id):
     context = {'post': post, 'form': form, 'sent': sent}
     return render(request, 'blogs/share.html', context)
 
-
+@login_required
 def post_list(request, tag_slug=None):
     object_list = Post.objects.all()
     tag = None
@@ -84,7 +84,7 @@ def post_list(request, tag_slug=None):
     return render(request,
                   'blogs/post/list.html', context)
 
-
+@login_required
 def post_details(request, year, month, day, post):
     post = get_object_or_404(Post, slug=post,
                              publish__year=year,

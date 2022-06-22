@@ -29,23 +29,26 @@ SECRET_KEY = '045cd087a91c04359b9bda8035081929197444884db64ec8'
 # SECURITY WARNING: don't run with debug turned on in production!
 
 DEBUG = True
-ALLOWED_HOSTS = ['https://git.heroku.com/murmuring-river-00434.git']
+ALLOWED_HOSTS = ['https://git.heroku.com/murmuring-river-00434.git', '127.0.0.1']
 SITE_ID = 1
-
 
 # Application definition
 
 INSTALLED_APPS = [
+    #Django default application
+    'account.apps.AccountConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+     # My own applications...
+    'blogs.apps.BlogsConfig',
+    'social_django',
+    'images.apps.ImagesConfig',
     # Django third-party apps.
     'taggit',
-    # My own applications...
-    'blogs.apps.BlogsConfig',
     # Sitemap app recctifiers 
     'django.contrib.sites',
     'django.contrib.sitemaps',
@@ -86,6 +89,7 @@ WSGI_APPLICATION = 'Blog.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+"""
 
 DATABASES = {
     'default': {
@@ -97,7 +101,15 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+"""
 
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -141,7 +153,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # Settings for email backends 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_PASSWORD = 'mypassword'
@@ -156,6 +168,18 @@ EMAIL_HOST_PASSWORD = 'mypassword'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = False
 """
+LOGIN_REDIRECT_URL = 'account:dashboard'
+LOGIN_URL = 'account:login'
+LOGOUT_URL = 'account:logout'
+
+
+AUTHENTICATION_BACKEND = [
+    'django.contrib.auth.backends.ModelBackend',
+    'account.authenticatetion.EmailAuthBackend',
+    'social_core.backends.facebook.FacebookOAuth2',
+]
 
 # Setting for heroku deployments
 django_heroku.settings(locals())
+SOCIAL_AUTH_FACEBOOK_KEY = '1185000272250134dd' #Facebook App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = ''

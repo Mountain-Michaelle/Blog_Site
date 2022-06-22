@@ -25,10 +25,16 @@ sitemaps = {
 }
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    #Account Environment
+    path('account/', include('account.urls', namespace='account:login')),
+    path('', include('django.contrib.auth.urls')),
+    #Blog apps environment
     path('', include('blogs.urls', namespace='blogs')),
+    path('admin/', admin.site.urls),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
      name='django.contrib.sitemaps.views.sitemap'),
+    path('social-auth/', include('social_django.urls', namespace='social')),
+    
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,

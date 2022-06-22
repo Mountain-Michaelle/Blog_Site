@@ -1,0 +1,29 @@
+{% extends 'account/home.html' %}
+
+{% block title %} Sign-in {% endblock title %}
+
+{% block content %} 
+<h1>Sign-in</h1>
+
+{% if form.errors %}
+  <p>Your username and password does not match! please try again</p> 
+{% else %}
+<p> Please use the following form to log-in: </p> 
+{% endif %} 
+<div class="login-form">
+    <form action="{% url 'account:login'%}" method="post">
+        {{ form.as_p }}
+        {% csrf_token %} 
+        <input type="hidden" name="next" value="{{ next }}" />
+        <p><input type="submit" value="login-in" /><p/> 
+    </form>
+     <p> <a href="{% url 'account:password_reset' %}" > Forgotten your password? </a>  </p>
+  <p><h2> Don't have account?</h2> <a href="{% url 'account:register' %}"> Sign-up here </a> </p>
+</div> 
+<div class="social">
+  <ul>
+    <li class="facebook"><a href="{% url 'social:begin' 'facebook' %}"> Sign in with Facebook </a></li>
+  </url>
+</div>
+{% endblock %}
+

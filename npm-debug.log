@@ -1,0 +1,30 @@
+0 info it worked if it ends with ok
+1 verbose cli [
+1 verbose cli   'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Users\\Eduur\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'npm'
+1 verbose cli ]
+2 info using npm@3.5.3
+3 info using node@v17.1.0
+4 verbose stack ReferenceError: primordials is not defined
+4 verbose stack     at evalmachine.<anonymous>:47:5
+4 verbose stack     at Object.<anonymous> (C:\Users\Eduur\AppData\Roaming\npm\node_modules\npm\node_modules\cmd-shim\node_modules\graceful-fs\fs.js:11:1)
+4 verbose stack     at Module._compile (node:internal/modules/cjs/loader:1097:14)
+4 verbose stack     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1149:10)
+4 verbose stack     at Module.load (node:internal/modules/cjs/loader:975:32)
+4 verbose stack     at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+4 verbose stack     at Module.require (node:internal/modules/cjs/loader:999:19)
+4 verbose stack     at require (node:internal/modules/cjs/helpers:102:18)
+4 verbose stack     at Object.<anonymous> (C:\Users\Eduur\AppData\Roaming\npm\node_modules\npm\node_modules\cmd-shim\node_modules\graceful-fs\graceful-fs.js:3:27)
+4 verbose stack     at Module._compile (node:internal/modules/cjs/loader:1097:14)
+5 verbose cwd C:\Users\Eduur\Blog
+6 error Windows_NT 10.0.19042
+7 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\Eduur\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "install" "-g" "npm"
+8 error node v17.1.0
+9 error npm  v3.5.3
+10 error primordials is not defined
+11 error If you need help, you may report this error at:
+11 error     <https://github.com/npm/npm/issues>
+12 verbose exit [ 1, true ]

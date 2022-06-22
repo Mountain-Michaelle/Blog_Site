@@ -1,0 +1,16 @@
+{% extends 'account/home.html' %} 
+
+{% block title %}Edit your profile {% endblock title %} 
+
+
+{% block content %} 
+<h1>Edit your Profile</h1> 
+
+<form action="." method="post" enctype="multipart/form-data">
+    {{user_form.as_p}} 
+    {{profile_form.as_p}}
+    {% csrf_token %} 
+    <p> <input type="submit" value="save changes"></p> 
+</form>
+
+{% endblock content %} 
