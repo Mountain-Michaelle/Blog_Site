@@ -142,3 +142,7 @@ img {
     display: block;
     margin: 1px;
 }
+
+img:hover {
+    transform: scale(1.1);
+}
