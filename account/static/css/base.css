@@ -10,12 +10,12 @@ p {
 }
 
 a {
-    color: #12c064;
+    color: #e2226c;
     text-decoration: none;
 }
 
 a:hover {
-    color: #00a74f;
+    color: #ff0b20;
 }
 
 h1,
@@ -45,9 +45,9 @@ ol {
 #header {
     padding: 10px 100px;
     font-size: 14px;
-    background: #12c064;
+    background: #924937;
     color: #fff;
-    border-bottom: 4px solid #22b3b8;
+    border-bottom: 4px solid #7a0606;
     overflow: auto;
 }
 
@@ -73,7 +73,7 @@ ol {
 
 #header ul.menu li.selected a,
 #header ul.menu li.selected a:hover {
-    color: #1b6d32;
+    color: #ffbb62;
     font-weight: bold;
 }
 
@@ -92,6 +92,16 @@ ol {
 
 #content {
     padding: 30px 100px;
+}
+
+.user_greeting {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.user_content {
+    margin-left: 20px;
+    padding-top: 30px;
 }
 
 
@@ -127,7 +137,7 @@ textarea {
 input[type=submit],
 a.button {
     font-weight: bold;
-    background: #12c064;
+    background: #920000;
     color: #fff;
     padding: 10px 20px;
     font-size: 14px;

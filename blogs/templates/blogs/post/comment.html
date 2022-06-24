@@ -31,14 +31,16 @@
 {% endfor %}
 {% if new_comment %}
   <h2>Your comment has been added</h2>
-{% else %}
-  <p> Add comment </p>
+{% else %}  
 </div>
+<div class="comment-padding">
+<p> Add comments </p>
   <form action="." method="post">
     {{ comment_form.as_p }}
     {% csrf_token %}
     <p> <input type="submit" value="Add comment"></p>
   </form>
+</div>
 {% endif %}
  
 {% endblock content %}

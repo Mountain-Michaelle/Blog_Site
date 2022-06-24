@@ -4,6 +4,10 @@
 
 {% block content %} 
   <h1>Dashboard</h1> 
+  <h3 class="user_greeting"> Welcome <strong> {{ request.user.username }} </strong> meet our 'Blog' </h3>
+  <div class="user_content">
+  <h3 class="blog_news_link">To read our Secret Real News<a href="{% url 'blogs:post_list' %}"> Click Here</a> <h3S>
   <p>Welcome to your dashboard. You can <a href="{% url 'account:edit' %}">edit your profile </a> or  </p> 
   <p> You may also want to <a href="{% url 'account:password_change' %}">change your password here </a>
+  </div>
 {% endblock content %} 

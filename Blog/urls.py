@@ -26,10 +26,10 @@ sitemaps = {
 
 urlpatterns = [
     #Account Environment
-    path('account/', include('account.urls', namespace='account:login')),
+    path('', include('account.urls', namespace='account:login')),
     path('', include('django.contrib.auth.urls')),
     #Blog apps environment
-    path('', include('blogs.urls', namespace='blogs')),
+    path('', include('blogs.urls', namespace='blogs:blog')),
     path('admin/', admin.site.urls),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
      name='django.contrib.sitemaps.views.sitemap'),

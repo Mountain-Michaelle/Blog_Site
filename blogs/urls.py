@@ -5,7 +5,7 @@ from .feeds import LatestPostsFeed
 
 app_name = 'blogs'
 urlpatterns = [
-    path('blog', views.post_list, name='post_list'),
+    path('blogs', views.post_list, name='post_list'),
     path('tag/<slug:tag_slug>/', views.post_list, name='post_list_by_tag'),
    # path('', views.PostListView.as_view(), name='post_list'),
     path('<int:year>/<int:month>/<int:day>/<slug:post>/',

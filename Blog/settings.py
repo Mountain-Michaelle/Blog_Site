@@ -177,8 +177,8 @@ EMAIL_HOST_PASSWORD = 'mypassword'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = False
 """
-LOGIN_REDIRECT_URL = 'blog'
 LOGIN_URL = 'account:login'
+LOGIN_REDIRECT_URL = 'account:dashboard'
 LOGOUT_URL = 'account:logout'
 
 
