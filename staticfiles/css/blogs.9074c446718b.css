@@ -1,0 +1,155 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: helvetica, sans-serif;
+}
+
+a {
+    color: #00abff;
+    text-decoration: none;
+}
+
+h1 {
+    font-weight: normal;
+    border-bottom: 1px solid #bbb;
+    padding: 0 0 10px 0;
+}
+
+h2 {
+    font-weight: normal;
+    margin: 30px 0 0;
+}
+
+#content {
+    float: left;
+    width: 60%;
+    padding: 0 0 0 30px;
+}
+
+#greeting {
+    font-size: 21px;
+    color: rgb(221, 0, 0);
+}
+
+#sidebar {
+    float: right;
+    width: 30%;
+    padding: 10px;
+    background: rgb(243, 223, 223);
+    color: rgb(86, 124, 218);
+    height: 300%;
+}
+
+p.date {
+    color: #ccc;
+    font-family: georgia, serif;
+    font-size: 12px;
+    font-style: italic;
+}
+
+
+/* pagination */
+
+.pagination {
+    margin: 40px 0;
+    font-weight: bold;
+}
+
+
+/* forms */
+
+label {
+    float: left;
+    clear: both;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+input,
+textarea {
+    clear: both;
+    float: left;
+    margin: 0 0 10px;
+    background: #ededed;
+    border: 0;
+    padding: 6px 10px;
+    font-size: 12px;
+}
+
+input[type=submit] {
+    font-weight: bold;
+    background: #680000;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+h3.search {
+    text-indent: 0px;
+}
+
+.errorlist {
+    color: #cc0033;
+    float: left;
+    clear: both;
+    padding-left: 10px;
+}
+
+
+/* comments */
+
+.comment {
+    padding: 20px;
+}
+
+.comment_padding {
+    object-fit: contain;
+    padding-left: 50px;
+    color: red;
+}
+
+.comment:nth-child(even) {
+    background: #efefef;
+}
+
+.text {
+    color: rgb(117, 230, 17)
+}
+
+.comment .info {
+    font-weight: bold;
+    font-size: 12px;
+    color: rgb(92, 0, 0);
+}
+
+#comment_body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+}
+
+#tite {
+    font-size: 20px;
+}
+
+p.tags {
+    color: rgb(86, 124, 218);
+}
+
+#comment {
+    text-indent: 20px;
+}
+
+#post-img,
+img {
+    float: left;
+    height: 300px;
+    width: 260px;
+    display: block;
+    margin: 1px;
+    transition: 250ms;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
